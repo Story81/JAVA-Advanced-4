@@ -4,9 +4,9 @@ import org.example.operations.*;
 public class Сalculating {
 
     // Объявляем константы для кодов ошибок
-    public static final int error_no= 0;
-    public static final int error_not_sup = 1;
-    public static final int error_zero = 2;
+    public static final int ERROR_no= 0;
+    public static final int ERROR_not_sup = 1;
+    public static final int ERROR_zero = 2;
 
         private double val = 0.0;
     public double getValue() {
@@ -24,31 +24,31 @@ public class Сalculating {
 
     public int result(float a, float b, String znak) {
         if (znak.length() !=1) {  //Если длина переменной znak не равно 1, выводим ошибку с кодом ERROR_NOT_SUP
-            return error_not_sup;
+            return ERROR_not_sup;
         }
         MathOperation someOp;   //объявляется переменная someOp типа MathOperation. Эта переменная будет использоваться для создания экземпляров классов, реализующих интерфейс MathOperation
         switch (znak.charAt(0)) {
             case '+':
                 someOp = new Sum();
                 val = someOp.result(a, b);
-              return error_no;
+              return ERROR_no;
             case '-':
                 someOp = new Subtract();
                 val = someOp.result(a, b);
-             return error_no;
+             return ERROR_no;
             case '*':
                 someOp = new Multiply();
                 val = someOp.result(a, b);
-              return error_no;
+              return ERROR_no;
             case '/':
                 someOp = new Divide();
                 val = someOp.result(a, b);
                 if (b == 0) {
-                    return error_zero;
+                    return ERROR_zero;
                 }
-              return error_no;
+              return ERROR_no;
         }
-        return error_not_sup;
+        return ERROR_not_sup;
     }
 
     /**
@@ -58,11 +58,11 @@ public class Сalculating {
      */
     public String getErrorText(int errorCode) {
         switch(errorCode) {
-            case error_no:
+            case ERROR_no:
                 return "";
-            case error_not_sup:
+            case ERROR_not_sup:
                 return "Необходимо ввести один из знаков: +, -, * или /";
-            case error_zero:
+            case ERROR_zero:
                 return "Делить на ноль нельзя";
         }
         return "Ошибка. Обратитесь к разработчику";

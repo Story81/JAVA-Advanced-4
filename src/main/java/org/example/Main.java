@@ -18,7 +18,7 @@ public class Main {
 
         // Вызываем метод result на объекте calc для выполнения операции над введенными числами a и b
         int errorCode = calc.result(a, b, someOp);
-        if (errorCode == Сalculating.error_no)  {
+        if (errorCode == Сalculating.ERROR_no)  {
             System.out.printf("Ответ: " + a + " "+ someOp   + " " +   b + " = %.4f", calc.getValue());
         }
         else {
